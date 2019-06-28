@@ -1,0 +1,61 @@
+clear
+i="y"while [ $i = "y" ]
+do 
+echo "1.display current dir"
+echo "2.listing the dir"
+echo "3.make a dir"
+echo "4.create a file"
+echo "5. copy a file"
+echo "6.rename a file"
+echo "7.delete file"
+echo "8.edit file"
+echo "9.display"
+echo "10.exit"
+echo "enter your choice"
+read ch
+case $ch in
+1)echo "current dir is:"
+pwd;;
+2)echo "directories are"
+is;;
+3)echo "enter dir name to create"
+read d
+mkdir $d
+echo $d" dir is created";;
+4)echo "enter a file name:"
+read cfname
+echo "enter the content of $cfname:"
+cat>$cfname;;
+5)echo "enter filename from copy"
+read f1
+echo "enter file2 to be copied"
+read f2
+#cat $f1 > f2
+cp $f1 $f2
+echo $f2" is copied from "$f1;;
+6)echo "enter file name to rename"
+read f1
+echo "ener new name of file"
+read f2
+mv $f1 $f2
+echo $f1" is rename as "$f2;;
+7)echo "enter any filenm to be delete"
+read f1
+rm $f1
+file_manipulation.txt
+echo $f1" is deleted";;
+8)echo "enter any file to be editing"
+read f1
+vi $f1;;
+9)echo "enter the file name to be displayed:"
+read dfname
+cat $dfname;;
+10)echo "have a nice time"
+exit;;
+*)echo "invalid choice enterd";;
+esac
+echo "do u want to continue?"
+read i
+if [ $i!="y" ]
+then
+  exit
